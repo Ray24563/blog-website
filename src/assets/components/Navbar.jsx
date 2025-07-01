@@ -4,8 +4,8 @@ function NavigationBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white p-6 px-10 flex justify-between items-center">
-      <h1 className="custom-font text-3xl">Just my Type</h1>
+    <nav className="bg-white p-5 px-10 flex justify-between items-center border-b border-b-[#0A0908]">
+      <h1 className="custom-font text-2xl">Just my Type</h1>
 
       {/* Hamburger Icon - visible on small screens only */}
       <button
@@ -29,7 +29,7 @@ function NavigationBar() {
       <ul className="hidden md:flex font-[sans-serif]">
         <a className="hover:bg-[#5E503F] hover:text-white pt-2 pb-2 pe-4 ps-4 transition-bg duration-400 rounded-sm cursor-pointer me-2"><li>Home</li></a>
         <a className="hover:bg-[#5E503F] hover:text-white pt-2 pb-2 pe-4 ps-4 transition-bg duration-400 rounded-sm cursor-pointer me-2"><li>About</li></a>
-        <a className="hover:bg-[#5E503F] hover:text-white pt-2 pb-2 pe-4 ps-4 transition-bg duration-400 rounded-sm cursor-pointer"><li>Create Post</li></a>
+        <a className="hover:bg-[#5E503F] hover:text-white pt-2 pb-2 pe-4 ps-4 transition-bg duration-400 rounded-sm cursor-pointer"><li>Posts</li></a>
       </ul>
 
       {/* Menu - shown when menuOpen is true (Shown mostly in smartphones) */}

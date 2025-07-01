@@ -1,4 +1,5 @@
 import NavigationBar from "./assets/components/Navbar"
+import Home from "./assets/pages/Home"
 import './index.css'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
      <NavigationBar/>
+     <Home/>
     </>
   )
 }
