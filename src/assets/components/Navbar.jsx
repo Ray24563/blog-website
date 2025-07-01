@@ -19,7 +19,7 @@ function NavigationBar() {
       >
         {/* Hamburger SVG Icon */}
         <svg
-          className="w-6 h-6"
+          className="w-6 h-6 cursor-pointer hover:opacity-60 transition-opacity duration-300"
           fill="none"
           stroke="black"
           viewBox="0 0 24 24"
