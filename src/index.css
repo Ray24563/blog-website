@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'TitleFont';
+  src: url('assets/fonts/Raleway-Bold.ttf') format('truetype');
+}
+
+body{
+  background-color: #F2F4F3;
+}
+
+.custom-font{
+  font-family: 'TitleFont', sans-serif; 
+  color: #5E503F;
+}
