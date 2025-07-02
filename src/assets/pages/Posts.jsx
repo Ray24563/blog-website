@@ -52,6 +52,10 @@ function Posts(){
     // post, the editIndex value is 1 and index is 1. So they are equal, therefore,
     // the condition is TRUE and the edit interface will display.
     // If it is false, the normal post interface will display.
+
+    // Same goes to the interface when there is no post. If the "display.length == 0"
+    // or if the post is empty, the message no post will be rendered.
+    // And if it false, the posts will be rendered.
     <>
 
       {display.length == 0 ? (
