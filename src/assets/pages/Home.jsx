@@ -29,7 +29,6 @@ function Home(){
     const savedPosts = localStorage.getItem('myPosts');
     return savedPosts ? JSON.parse(savedPosts) : []
   });
-  
   const [createTitle, setTitle] = useState("")
   const [currentDate, setCurrentDate] = useState(
       new Date(). toLocaleDateString('en-US', {
@@ -39,6 +38,8 @@ function Home(){
         })
       );
   const [createDesc, setCreateDesc] = useState("");
+  const [message, setMessage] = useState("");
+  const [transition, setTransition] = useState(false)
   
   function newTitle(event){
     setTitle(event.target.value)
@@ -61,6 +62,14 @@ function Home(){
     setTitle("")
     setCreateDesc("")
 
+    setMessage("Post Successfully Added")
+    setTransition(true)
+
+    setTimeout(() => {
+      setTransition(false);
+      setTimeout(() => setMessage(""), 500);
+    }, 2000)
+
   }
 
   useEffect(() => {
@@ -79,12 +88,18 @@ function Home(){
         </div>
 
         <form onSubmit={handleSubmit}>
+          {message && (
+            <div className='flex justify-center mb-5'>
+              <div className={`transition-opacity duration-500 text-sm font-[sans-serif] rounded-sm bg-green-400 p-3 ps-5 pe-5 w-50 ${transition ? "opacity-100" : "opacity-0"}`}>{message}</div>
+            </div>
+          )}
+
           <div>
-            <input value={createTitle} onChange={newTitle} className="bg-[#F2F4F3] mb-5 rounded-sm border border-black border-solid ps-3 pt-2 pb-2 font-[sans-serif]" placeholder="Enter Title" type="text"/>
+            <input value={createTitle} onChange={newTitle} className="bg-[#F2F4F3] mb-5 rounded-sm border border-black border-solid ps-3 pt-2 pb-2 font-[sans-serif]" placeholder="Enter Title" type="text" required maxLength={20}/>
           </div>
 
           <div>
-            <textarea value={createDesc} onChange={newDesc} className="resize-none mb-5 bg-[#F2F4F3] w-70 rounded-sm border border-black border-solid ps-3 pt-2 pb-2 font-[sans-serif]" placeholder="How are you feeling today?" type="text"/>
+            <textarea value={createDesc} onChange={newDesc} className="resize-none mb-5 bg-[#F2F4F3] w-70 rounded-sm border border-black border-solid ps-3 pt-2 pb-2 font-[sans-serif]" placeholder="How are you feeling today?" type="text" required/>
           </div>
 
           <button className="hover:opacity-85 bg-[#5E503F] cursor-pointer text-white font-[sans-serif] rounded-sm ps-8 pe-8 pt-2 pb-2 transition-opacity duration-300">Post</button>

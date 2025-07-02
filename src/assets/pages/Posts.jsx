@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import CP3 from '../images/nothing.png'
 
 function Posts(){
 
@@ -6,13 +7,13 @@ function Posts(){
   const [editIndex, setEditIndex] = useState(null);
   const [editTitle, setEditTitle] = useState("");
   const [editDesc, setEditDesc] = useState("");
-   const [editCurrentDate, setEditCurrentDate] = useState(
-        new Date(). toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric'
-          })
-        );
+  const [editCurrentDate, setEditCurrentDate] = useState(
+      new Date(). toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+        })
+      );
 
   useEffect(() => {
     document.title = "Posts";
@@ -52,7 +53,18 @@ function Posts(){
     // the condition is TRUE and the edit interface will display.
     // If it is false, the normal post interface will display.
     <>
-      <div className='flex flex-wrap p-10 gap-8 justify-center'>
+
+      {display.length == 0 ? (
+        <>
+          <div className='flex justify-center mt-50'>
+            <div className='opacity-70'>
+              <img className='w-50 mb-5' src={CP3}></img>
+              <h1 className='font-[sans-serif]'>Nothing has been posted yet.</h1>
+            </div>
+          </div>
+        </>
+      ):(
+        <div className='flex flex-wrap p-10 gap-8 justify-center'>
 
         {display.map((displayPost, index) => 
           <div key={index} className='bg-white w-full 2xl:w-170 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-7 rounded-sm h-70 overflow-y-auto'>
@@ -79,11 +91,13 @@ function Posts(){
               <button key={index} className="text-xs hover:opacity-85 bg-[#5E503F] cursor-pointer text-white font-[sans-serif] rounded-sm ps-5 pe-6 pt-2 pb-2 transition-opacity duration-300" onClick={() => removePost(index)}>Delete</button>
             </div>
           </>
-        )}
+        )}  
         </div>
         )}
 
       </div>
+      )}
+
 
     </>
     
