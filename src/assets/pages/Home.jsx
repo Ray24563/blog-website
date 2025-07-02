@@ -19,6 +19,12 @@ function Home(){
   const dayGreetings = greetingsByDay[dayName] || "Thank you for using Just my Type!";
 
   // Adding Post Logic
+
+  // Instead of using "const [posts, setPosts] = useState([])" I use that line of code below.
+  // If I stick with an empty array of useState, every time the page render, it will run that code.
+  // Which causes the localStorage to clear its data since it is implemented as empty.
+  // Inside the useState, I load the localStorage itself so everytime the page renders,
+  // the local storage will load and displayed.
   const [posts, setPost] = useState(() => {
     const savedPosts = localStorage.getItem('myPosts');
     return savedPosts ? JSON.parse(savedPosts) : []
