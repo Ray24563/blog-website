@@ -59,7 +59,7 @@ function About(){
         </div>
       </section>
 
-      <section className='mt-15'>
+      <section className='mt-30'>
 
         <div className='flex justify-center flex-col xl:flex-row gap-10 xl:gap-50 items-center xl:items-baseline'>
 
