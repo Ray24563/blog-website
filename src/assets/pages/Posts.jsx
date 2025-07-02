@@ -14,19 +14,21 @@ function Posts(){
         year: 'numeric'
         })
       );
-
+      
   useEffect(() => {
     document.title = "Posts";
     const loadPosts = JSON.parse(localStorage.getItem('myPosts')) || [];
     setDisplay(loadPosts)
   }, []);
 
+  // Removal of Post functionality
   function removePost(index){
     const removePost = display.filter((_, i) => i !== index)
     localStorage.setItem('myPosts', JSON.stringify(removePost));
     setDisplay(removePost)
   }
 
+  // Save post when it was edited functionality
   function handleSave(index) {
     const updated = [...display];
     updated[index] = {

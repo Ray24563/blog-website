@@ -29,6 +29,7 @@ function Home(){
     const savedPosts = localStorage.getItem('myPosts');
     return savedPosts ? JSON.parse(savedPosts) : []
   });
+
   const [createTitle, setTitle] = useState("")
   const [currentDate, setCurrentDate] = useState(
       new Date(). toLocaleDateString('en-US', {
@@ -39,16 +40,19 @@ function Home(){
       );
   const [createDesc, setCreateDesc] = useState("");
   const [message, setMessage] = useState("");
-  const [transition, setTransition] = useState(false)
+  const [transition, setTransition] = useState(false) // For the transition of success message
   
+  // Handles the value being inputted in the input field
   function newTitle(event){
     setTitle(event.target.value)
   }
 
+  // Handles the value being inputted in the input field
   function newDesc(event){
     setCreateDesc(event.target.value)
   }
 
+  // Submit behavior functionality
   function handleSubmit(e){
     e.preventDefault();
 
@@ -72,6 +76,8 @@ function Home(){
 
   }
 
+  // Save the data to localStorage so it will still render even if it is refreshed.
+  // Also, to render it to different pages
   useEffect(() => {
     document.title = "Just my Type";
     localStorage.setItem("myPosts", JSON.stringify(posts));
