@@ -1,14 +1,61 @@
-# Simple Blog Website
+# Just my Type - Simple Blog Website
 
-**!!! Under Development !!!**
+A simple blog website built using React 19, React Router, Tailwind CSS, and Vite. This project allows users to view and manage blog posts with a clean and modern interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚛️ Built with React 19 and React Router DOM
 
-## Expanding the ESLint configuration
+💨 Styled using Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧭 Navigation handled via React Router
+
+⚙️ Bundled with Vite for fast development
+
+📝 Editable blog posts with state management
+
+🔍 Client-side routing and dynamic views
+
+
+## 📦 Installation
+Follow these steps to set up the project locally:
+
+1. **Clone the Repository**
+
+```bash
+git clone https://github.com/Ray24563/blog-website.git
+cd blog-website
+
+```
+2. **Install dependencies**
+
+```bash
+npm install
+
+```
+
+3. **Run the Development Server**
+
+```bash
+npm run dev
+
+```
+
+By default, the app will be available at:
+```bash
+http://localhost:5173
+
+```
+
+## 🌐 Technologies Used
+- React 19
+- React Router DOM 7
+- Tailwind CSS 4
+- Vite
+- ESLint
+
+
+## 🙌 Author
+
+Built by Ray24563
