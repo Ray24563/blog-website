@@ -2,11 +2,6 @@ import React, {useEffect, useState} from 'react'
 
 function Home(){
 
-  useEffect(() => {
-    document.title = "Just my Type";
-    localStorage.setItem("myPosts", JSON.stringify(posts));
-  }, []);
-
   // Day Greetings Logic
   const today = new Date();
   const dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
@@ -24,7 +19,11 @@ function Home(){
   const dayGreetings = greetingsByDay[dayName] || "Thank you for using Just my Type!";
 
   // Adding Post Logic
-  const [posts, setPost] = useState([]);
+  const [posts, setPost] = useState(() => {
+    const savedPosts = localStorage.getItem('myPosts');
+    return savedPosts ? JSON.parse(savedPosts) : []
+  });
+  
   const [createTitle, setTitle] = useState("")
   const [currentDate, setCurrentDate] = useState(
       new Date(). toLocaleDateString('en-US', {
@@ -35,7 +34,6 @@ function Home(){
       );
   const [createDesc, setCreateDesc] = useState("");
   
-
   function newTitle(event){
     setTitle(event.target.value)
   }
@@ -56,14 +54,13 @@ function Home(){
     setPost(p => [...p, newPost])
     setTitle("")
     setCreateDesc("")
-    setCurrentDate(useState(
-      new Date(). toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric'
-        })
-      ));
-    }
+
+  }
+
+  useEffect(() => {
+    document.title = "Just my Type";
+    localStorage.setItem("myPosts", JSON.stringify(posts));
+  }, [posts]);
 
   return (
     <>
@@ -89,13 +86,6 @@ function Home(){
 
       </div>
     </div>
-
-      <div>
-        <ul>
-          {posts.map((post, index) => 
-          <li key={index}>{post.title} - {post.date} - {post.description}</li>)}
-        </ul>
-      </div>
     </>
   )
 }
